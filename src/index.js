@@ -58,13 +58,15 @@ Elements.taskList.addEventListener('click', (e) => {
     const descriptionItem = item.children[0].children[2];
     const targetItem = e.target.parentElement.parentElement.parentElement;
 
-    if (
-      !targetItem.classList.contains('bg-yellow')
-      && descriptionItem === e.target
-    ) {
-      item.children[1].classList.add('hide');
-      item.children[2].classList.remove('hide');
-      item.classList.add('bg-yellow');
+    if (targetItem) {
+      if (
+        !targetItem.classList.contains('bg-yellow')
+        && descriptionItem === e.target
+      ) {
+        item.children[1].classList.add('hide');
+        item.children[2].classList.remove('hide');
+        item.classList.add('bg-yellow');
+      }
     }
 
     // update the check checkbox to local storage
