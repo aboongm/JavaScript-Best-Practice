@@ -38,8 +38,16 @@ ul {
 
 input:focus {
   outline: none;
+  background-color: transparent;
 }
 
 span:focus {
   outline: none;
+}
+
+.description {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  margin-left: 20px;
 }
