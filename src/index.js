@@ -73,13 +73,13 @@ Elements.taskList.addEventListener('click', (e) => {
   });
 
   const trash = document.querySelectorAll('.trash');
-  trash.forEach((deleteBtn) => {
+  trash.forEach((deleteBtn, trashInd) => {
     deleteBtn.addEventListener('click', (e1) => {
       e1.stopPropagation();
-      if (deleteBtn === e1.target) {
+      // e.preventDefault();
+      const targetId = e1.target.parentElement;
+      if (parseInt(targetId.getAttribute('data-id'), 10) === trashInd) {
         removeTask(e1.target.parentElement);
-      } else if (deleteBtn.firstElementChild === e1.target) {
-        removeTask(e1.target.parentElement.parentElement);
       }
     });
   });
