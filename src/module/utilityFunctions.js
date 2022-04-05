@@ -13,9 +13,7 @@ const displayContent = () => {
               <button class="three-dots h5 btn m-0 icon">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </button>
-              <button class="trash h5 btn m-0 icon hide">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
+              <i class="trash fa-solid fa-trash-can hide"></i>              
             </div>
       `;
   });
@@ -40,16 +38,16 @@ const reorderTaskObjectId = (obj) => {
 };
 
 const removeTask = (element) => {
+  console.log(element);
   const i = parseInt(element.getAttribute('data-id'), 10);
   if (element.classList.contains('taskDynamic')) {
     element.remove();
+    Task.remove(i);
+    reorderTaskObjectId(Task.TaskObject);
+    localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
+    checkLocalStorage();
   }
-  Task.remove(i);
-  reorderTaskObjectId(Task.TaskObject);
-  localStorage.setItem('TASKS_LIST', JSON.stringify(Task.TaskObject));
-  checkLocalStorage();
 };
-
 export {
   Task,
   displayContent,
