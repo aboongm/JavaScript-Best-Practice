@@ -52,8 +52,8 @@ Elements.taskList.addEventListener('click', (e) => {
 
     if (targetItem) {
       if (
-        !targetItem.classList.contains('bg-yellow') &&
-        descriptionItem === e.target
+        !targetItem.classList.contains('bg-yellow')
+        && descriptionItem === e.target
       ) {
         item.children[1].classList.add('hide');
         item.children[2].classList.remove('hide');
@@ -65,15 +65,14 @@ Elements.taskList.addEventListener('click', (e) => {
     // update the check checkbox to local storage
     const checkStatus = item.firstElementChild.firstElementChild.checked;
     if (
-      index ===
-      parseInt(e.target.parentElement.parentElement.getAttribute('data-id'), 10)
+      index
+      === parseInt(e.target.parentElement.parentElement.getAttribute('data-id'), 10)
     ) {
       completed(index, checkStatus);
     }
   });
 
   const trash = document.querySelectorAll('.trash');
-  console.log(trash);
   trash.forEach((deleteBtn, trashInd) => {
     deleteBtn.addEventListener('click', (e1) => {
       e1.stopPropagation();
@@ -89,10 +88,10 @@ Elements.taskList.addEventListener('click', (e) => {
   const taskDescription = document.querySelectorAll('.description');
   taskDescription.forEach((description, index) => {
     if (
-      index ===
-      parseInt(
+      index
+      === parseInt(
         description.parentElement.parentElement.getAttribute('data-id'),
-        10
+        10,
       )
     ) {
       description.addEventListener('input', (e) => {

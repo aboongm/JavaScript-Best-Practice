@@ -38,7 +38,6 @@ const reorderTaskObjectId = (obj) => {
 };
 
 const removeTask = (element) => {
-  console.log(element);
   const i = parseInt(element.getAttribute('data-id'), 10);
   if (element.classList.contains('taskDynamic')) {
     element.remove();
